@@ -1,0 +1,20 @@
+{
+  "favoriteList": [
+    {
+      "id": 1,
+      "country": "json-server",
+      "place": "typicode"
+    },
+    {
+      "id": 1,
+      "country": "json-server",
+      "place": "typicode"
+    },
+    {
+      "id": 1,
+      "country": "json-server",
+      "place": "typicode"
+    }
+  ]
+}
+  

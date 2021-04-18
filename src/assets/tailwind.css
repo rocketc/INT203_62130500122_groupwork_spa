@@ -1,0 +1,15 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.test{
+    @apply uppercase text-green-500 text-center text-4xl;
+}
+.central{
+    @apply h-screen w-1/2 mr-auto ml-auto;
+}
+.picformat{
+    @apply grid justify-center items-center space-x-28 grid-cols-2 ;
+}
