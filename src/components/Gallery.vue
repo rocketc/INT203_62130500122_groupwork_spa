@@ -1,6 +1,6 @@
 <template>
   <div class="picformat">
-    <div id="pic1">
+    <div id="pic1" class="text-white rounded-md">
       <button class=" hover:text-gray-400">
         <img src="../assets/MouraineLake.png" class="h-4/5 w-4/5"><br>
         <p class="text-center text-3xl font-light tracking-wide">Moraine Lake, Canada</p>
