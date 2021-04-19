@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Photo from '../views/Photo.vue'
-//  1. import PhotoList from "../vies/PhotoList.vue "
+import Favorite from '../views/Favorite.vue'
 
 const routes = [
   {
@@ -14,11 +14,11 @@ const routes = [
     name: 'Photo',
     component: Photo
   },
-  // { 2.
-  //   path:'/photolist',
-  //   name:'PhotoList',
-  //   components:PhotoList
-  // }
+  { 
+    path:'/favorite',
+    name:'Favorite',
+    component: Favorite
+  }
 ]
 
 const router = createRouter({
