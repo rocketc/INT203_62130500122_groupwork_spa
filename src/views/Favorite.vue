@@ -2,15 +2,13 @@
     <div class="center">
         <MenuBar></MenuBar>
         <p class="text-black text-center">Your Favorite Place</p>
-        <div>
-            <span class="font-bold"> Country</span>
-            <span class="font-bold"> Place</span>
-        </div>
         <div v-for="f in favoriteList" :key="f.id">
-            <FavoriteList :inputCountry="f.country" :inputPlace="f.place" @click="selectFavoriteList(f)" @edit-button="openForm" @delete-button="deleteFavoriteList(f.id)"></FavoriteList>
+            <FavoriteList :inputCountry="f.country" :inputPlace="f.place" @click="selectFavoriteList(f)" @edit-click="openForm" @delete-click="deleteFavoriteList(f.id)"></FavoriteList>
         </div>
         <div>
+            <Form v-if="addClick" @close="changeaddNewFavoriteListClick"  @submitted-favoriteList="addNewFavoriteList"></Form>
             <Form v-if="editClick" @close="changeEditFavoriteClick" :country="currentFavoriteList.country" :place="currentFavoriteList.place" @submitted-favoriteList="editFavoriteList"></Form>
+
         </div>
     </div>
 </template>
@@ -33,10 +31,11 @@ export default {
             favoriteList: [],
             currentFavoriteList: [],
             editClick: false,
+            
         }
     },
     methods: {
-        changeAddFavoriteClick(obj){
+        changeaddNewFavoriteListClick(obj){
             this.$emit("close-form",obj);
         },
         changeEditFavoriteClick(obj){
@@ -50,15 +49,15 @@ export default {
         selectFavoriteList(favoriteList){
             this.currentFavoriteList = favoriteList;
         },
-        async addFavorite(addFavorite) {
+        async addNewFavoriteList(addNewFavoriteList) {
             const res = await fetch(this.url, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
-                    country: addFavorite.country,
-                    place: addFavorite.place,
+                    country: addNewFavoriteList.country,
+                    place: addNewFavoriteList.place,
                 }),
             });
             const data = await res.json();
@@ -88,10 +87,10 @@ export default {
             const data = await res.json();
             this.favoriteList = this.favoriteList.map((i) => (i.id === data.id ? { ...i, country: data.country, place: data.place} : i ));
         },
-        async created() {
+      
+    } , async created() {
             this.favoriteList = await this.fetchFavorite();
             this.currentFavoriteList = await this.favoriteList[0];
         },
-    }
 }
 </script>
