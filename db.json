@@ -1,20 +1,14 @@
 {
   "favoriteList": [
     {
-      "id": 1,
-      "country": "json-server",
-      "place": "typicode"
+      "country": "Thai",
+      "place": "Bangkok",
+      "id": 1
     },
     {
-      "id": 1,
-      "country": "json-server",
-      "place": "typicode"
-    },
-    {
-      "id": 1,
-      "country": "json-server",
-      "place": "typicode"
+      "country": "gw",
+      "place": "gg",
+      "id": 2
     }
   ]
 }
-  
